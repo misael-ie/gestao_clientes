@@ -1,6 +1,10 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth import logout
+# 7. TemplateViews
 from django.views.generic.base import TemplateView
+# 8. View
+from django.http import HttpResponse
+from django.views import View
 
 def home(request):
     return render(request, 'home.html')
@@ -17,3 +21,10 @@ class HomePageView(TemplateView):
         context["minha_variavel"] = 'Olá seja bem vindo motha fucker' 
         return context
     
+class MyView(View):
+    def get(self, request, *args, **kwargs):
+        # return HttpResponse('Hello, World!')
+        return render(request, template_name='home3.html')
+
+    def post(self, request, *args, **kwargs):
+        return HttpResponse('Post')

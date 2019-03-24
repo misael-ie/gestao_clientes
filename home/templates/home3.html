@@ -25,6 +25,11 @@
             {% endif %}
         </div>
     </div>
+ 
+ <form method='post'>
+    {% csrf_token %}
+    <button>Enviar</button>
+ </form>
 
 {% endblock %}
 
