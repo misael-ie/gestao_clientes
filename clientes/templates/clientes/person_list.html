@@ -1,0 +1,12 @@
+Listagem de pessoas
+
+<br>
+{% comment %} 
+    object_list já está injetado pelo Djando automaticamente 
+    person é a lista vinda do views.py 
+{% endcomment %}
+
+{% for person in object_list %} 
+    {{ person }}
+    <br>
+{% endfor %}
