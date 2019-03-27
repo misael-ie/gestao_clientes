@@ -4,6 +4,9 @@ from .models import Person
 from .forms import PersonForm
 # 9. ListView
 from django.views.generic import ListView
+# 10. DetailView
+from django.views.generic.detail import DetailView
+from django.utils import timezone
 
 
 @login_required
@@ -46,3 +49,13 @@ def persons_delete(request, id):
 
 class PersonList(ListView):
     model = Person
+
+class PersonDetail(DetailView):
+    model = Person
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["now"] = timezone.now()
+        context["now1"] = timezone.now()
+        return context
+    

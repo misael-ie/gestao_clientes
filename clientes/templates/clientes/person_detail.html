@@ -1,0 +1,18 @@
+{% comment %} 10 Detail View {% endcomment %}
+
+{% comment %} 
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+    age = models.IntegerField()
+    salary = models.DecimalField(max_digits=5, decimal_places=2)
+    bio = models.TextField()
+    photo = models.ImageField(upload_to='clients_photos', null=True, blank=True)
+    doc = models.OneToOneField(Documento, null=True, blank=True, on_delete=models.CASCADE)
+ {% endcomment %}
+
+<h1>{{ object.first_name }} {{ object.last_name }}</h1>
+<p>age: {{ object.age }}</p>
+<p>Salary: {{ object.salary }}</p>
+<p>Doc: {{ object.doc|date }}</p>
+<p>Date: {{ now|date }}</p>
+<p>Now1: {{ now1|date }}</p>

@@ -7,6 +7,6 @@ Listagem de pessoas
 {% endcomment %}
 
 {% for person in object_list %} 
-    {{ person }}
+    <a href={% url 'persons_detail_cbv' person.id %}>{{ person }}</a>
     <br>
 {% endfor %}
